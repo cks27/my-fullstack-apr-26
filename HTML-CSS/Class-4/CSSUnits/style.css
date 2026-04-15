@@ -1,0 +1,53 @@
+section{
+    width: 600px;
+    height: 200px;
+    border: 2px solid black;
+    background-color: lightcoral
+}
+
+section div{
+    width: 40%; /*240px*/
+    height: 60%; /*120px*/
+    border: 2px solid black;
+    background-color: lightgreen;
+    /* box-sizing: border-box; */
+}
+
+figure{
+    border: 2px solid #ccc;
+    width: 250px;
+    padding: 0.2rem;
+}
+
+figure img{
+    width: 100%; /*400px*/
+}
+
+/* immediate child selector */
+
+
+div{
+    font-size: 20px;
+}
+
+html{
+    font-size: 25px;
+}
+
+ul > li{
+    /* font-size: 2em; */
+    font-size: 2rem;
+}
+
+article{
+    border: 2px solid black;
+    background-color: lightskyblue;
+    width: 70vw; /* 70% of the viewport width*/
+    height: 40vh; /* 40% of the viewport height*/
+}
+
+main{
+    width: 80vw;
+    border: 2px solid black;
+    margin: 20px auto;
+}

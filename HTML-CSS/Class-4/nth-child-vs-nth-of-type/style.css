@@ -1,0 +1,9 @@
+section div:nth-child(3){
+    border: 2px solid black;
+    background-color: lightcoral;
+}
+
+section div:nth-of-type(3){
+    border: 2px solid black;
+    background-color: lightgreen;
+}

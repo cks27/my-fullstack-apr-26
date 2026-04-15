@@ -1,0 +1,44 @@
+figure {
+    border: 2px solid #ccc;
+    width: 400px;
+    padding: 1rem;
+}
+/* Descedent selector */
+figure img {
+    width: 100%;
+}
+figure figcaption h3 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* child selector or combinator */
+ul > li {
+    /* border-top: 2px solid red; */
+    color: purple; /* inheritable property color is*/
+}
+
+/* Document on Inhetance : https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Inheritance */
+
+/* Attribute selector */
+
+a[href="http://google.com"] {
+    color: red;
+    font-size: 24px;
+}
+
+/* element having the given classes on it */
+.fav-movie.underline {
+    font-size: 16px;;
+}
+
+/* pseudo slector -> pseudo classes */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-classes */
+
+section {
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+}
+section:hover {
+    background-color: aquamarine;
+}

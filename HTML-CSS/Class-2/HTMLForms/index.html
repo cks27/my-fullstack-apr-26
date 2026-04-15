@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>HTML Forms</h1>
+
+    <!-- GET -->
+    <a href="http://facebook.com">Visit Facebook</a>
+
+    <input type="text" placeholder="Enter your name">
+    <input type="password" placeholder="enter password">
+    <input type="email" placeholder="enter email">
+    <input type="file">
+    <input type="color">
+    <input type="date">
+    <input type="time">
+    <input type="number">
+    <input type="range">
+    <input type="checkbox" checked>
+
+    <h2>GET Form Demo</h2>
+
+
+    <!-- http://myapp.com/someendpoint?username=Mike&age=25 -->
+
+    <form action="http://myapp.com/someendpoint" method="get">
+        <input type="text" placeholder="Username" name="username">
+        <input type="age" placeholder="Enter your age" name="age">
+        <button type="submit">Submit</button>
+    </form>
+    
+    <h2>POST Form Demo</h2>
+    <form action="http://myapp.com/someendpoint" method="post">
+        <input type="text" placeholder="Username" name="username">
+        <input type="age" placeholder="Enter your age" name="age">
+        <button type="submit">Submit</button>
+    </form>
+    
+
+    <!-- Google Search Hijack -->
+    <!-- https://www.google.com/search?q=burger -->
+
+    <h2>Google Search Hijack</h2>
+    <form action="https://www.google.com/search">
+        <input type="text" placeholder="Google Search" name="q">
+        <button>Search</button>
+    </form>
+
+    <!-- https://www.youtube.com/results?search_query=iphone -->
+
+    <h2>Youtube Search Hijack</h2>
+    <form action="https://www.youtube.com/results">
+        <label for="search">Youtube Search</label>
+        <input type="text" placeholder="Google Search" name="search_query" id="search">
+        <button>Search</button>
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,64 @@
+figure{
+    border: 2px solid #ccc;
+    width: 400px;
+}
+
+/* Descendent Selector */
+figure img{
+    width: 100%;
+}
+
+figure figcaption h2{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Child Selector */
+
+ul > li{
+    border-top: 2px solid red;
+    /* color: purple; */
+}
+
+/* Document on Inheritance : https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Inheritance */
+
+.underline{
+    text-decoration: underline;
+}
+
+/* Attribute Selector */
+
+a[href="http://google.com"]{
+    font-weight: bold;
+    font-size: 32px;
+    color: green;
+}
+
+input[type="password"]{
+    background-color: orange;
+}
+
+/* Element having the given classes on it */
+
+.fav-movie.underline{
+    font-size: 32px;
+}
+
+section{
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+}
+
+/* Pseudo classes */
+
+section:hover{
+    background-color: palevioletred;
+}
+
+a:visited{
+    color: red;
+}
+
+h1:active{
+    color: blue;
+}

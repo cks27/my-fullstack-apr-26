@@ -1,0 +1,21 @@
+section{
+    height: 200px;
+    width: 200px;
+    border: 2px solid black;
+    margin: 20px auto;
+
+    /* overflow: visible; */
+    /* overflow: hidden; */
+    /* overflow: scroll; */
+    overflow: auto;
+}
+
+section ul{
+    padding: 0;
+    list-style: none;
+}
+
+section ul li{
+    border: 2px solid #ccc;
+    padding: 5px;
+}
