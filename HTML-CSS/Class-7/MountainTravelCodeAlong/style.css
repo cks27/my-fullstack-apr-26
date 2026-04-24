@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* It enables the element to include their padding and border in the dimentions(content) */
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+header {
+    /* border: 2px solid red; */
+}
+
+header nav h2 {
+    font-weight: 500;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 4rem;
+
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    width: 400px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header nav a {
+    text-decoration: none;
+    color: white;
+}
+
+
+/* -----------------Banner Section---------------- */
+
+#banner-section {
+    /* border: 2px solid purple; */
+    height: 100vh;
+    width: 100vw;
+
+    background-image: url("./assets/img/main.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    margin-bottom: 5rem;
+}
+
+#banner-section div{
+    opacity: 0;
+    animation: 1s 1 linear forwards fade-in;
+}
+
+#banner-section h1 {
+    color: white;
+    font-size: 4rem;
+    font-weight: 500;
+}
+
+#banner-section h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+#banner-section button {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 0.4rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #1a759f;
+    color: white;
+}
+
+
+/* ------------------------------------ destination Section----- */
+
+#destination-desc {
+    text-align: center;
+}
+
+hr {
+    height: 16px;
+    background-color: #1e6091;
+    width: 550px;
+    margin: 1rem auto;
+    border: none;
+}
+
+#destination-grid {
+    width: 80vw;
+    display: grid;
+    grid-auto-rows: 370px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "item-1 item-2 item-2"
+        "item-3 item-3 item-4";
+    margin: 1rem auto;
+    gap: 1.5rem;
+}
+
+#destination-grid div img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.item-1 {
+    background-color: lightcoral;
+    grid-area: item-1;
+}
+
+.item-2 {
+    background-color: lightgreen;
+    grid-area: item-2;
+}
+
+.item-3 {
+    background-color: lightslategray;
+    grid-area: item-3;
+}
+
+.item-4 {
+    background-color: lightyellow;
+    grid-area: item-4;
+}
+
+@media screen and (width<=1200px) {
+    #destination-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+            "item-1 item-1 item-2 item-2"
+            "item-3 item-3 item-4 item-4";
+    }
+}
+
+@media screen and (width<=900px) {
+    #destination-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "item-1"
+            "item-2"
+            "item-3"
+            "item-4";
+    }
+}
+
+@keyframes fade-in{
+    100%{
+        opacity: 1;
+    }
+}
