@@ -1,0 +1,1 @@
+## Day 110, Yesterday Full Stack LLD: JS-7: OOPS-2 : Object creation, Freezing objects
