@@ -1,4 +1,4 @@
-
+console.log('============================== Question 1 ============================');
 /*
 People often think:
 
@@ -38,6 +38,7 @@ rabbit.__proto__.sayHi();
 
 
 // =======================================================
+console.log('============================== Question 2 ============================');
 /*
 Real interview takeaway
 
@@ -59,6 +60,7 @@ console.log(a instanceof B);
 
 
 // ==========================================================================
+console.log('============================== Question 3 ============================');
 /*
     When a class extends another class, it becomes a derived class.
 
@@ -122,6 +124,7 @@ class Animal {
 
 class Rabbit2 extends Animal {
     constructor(name) {
+        super(); // added to avoid error
         this.name = name;
         this.created = Date.now();
     }
@@ -137,3 +140,14 @@ console.log(rabbit2.name);
 */
 
 // =========================================================================================
+
+console.log('============================== Question 4 ============================');
+
+class Animal2 {}
+
+class Dog extends Animal2 {}
+
+const d = new Dog();
+
+console.log(d instanceof Animal2);
+console.log('hello');
