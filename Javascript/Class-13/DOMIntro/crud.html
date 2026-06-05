@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>list of todos</h1>
+    <ul>
+        <li>revise JS</li>
+    </ul>
+
+    <ul class="number">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+
+        <li>8</li>
+        <li>9</li>
+    </ul>
+
+    <p>lorem</p>
+    <p>lorem</p>    
+    <p>lorem</p>
+    <p>lorem</p>    
+    <p>lorem</p>    
+    <p>lorem</p>    
+    <p>lorem</p>    
+    <h1>delete me </h1>
+    <script>
+        const li = document.createElement("li");
+        li.textContent = "revise DSA";
+        const ul = document.querySelector("ul");
+        ul.appendChild(li);
+
+        const li2= document.createElement("li");
+        li2.innerText="7";
+        const ul2= document.querySelector(".number");
+        console.log(ul2.children[6]);
+        //insertBefore(element to be inserted, element to be inserted before)
+        ul2.insertBefore(li2, ul2.children[6]);
+
+        const allParas = document.querySelectorAll("p");
+        allParas.forEach(para => {
+            para.style.color="salmon"
+        });
+        const h1 = document.querySelectorAll("h1");
+        h1[1].remove();
+    </script>
+</body>
+</html>

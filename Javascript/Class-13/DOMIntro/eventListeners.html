@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>add todo</button>
+    <input type="text">
+    <ul>
+
+    </ul>
+    <script>
+        const btn = document.querySelector("button");
+        const input = document.querySelector("input");
+        const ul = document.querySelector("ul");
+        btn.addEventListener("click", cb);
+        function cb(){
+            if(input.value){
+                const li = document.createElement("li");
+                li.innerText = input.value;
+                ul.appendChild(li);
+                input.value="";
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+    Don't make any changes to the HTML CODE.
+    Just write the solution code in the designated sript tag
+-->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding-top: 5rem;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .card {
+            border: 1px solid;
+            height: 10rem;
+            width: 10rem;
+            margin: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card red"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+    </div>
+    <script>
+        //  Write solution here ==============================
+        function selectSibling(){
+            const cards = document.querySelectorAll('.card');
+            // console.log(cards.classList);
+            Array.from(cards).map(card => {
+                if(card.classList.contains('red')) {
+                    card.remove();
+                }
+                
+            });
+            console.log(cards)
+        }
+        selectSibling();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+section{
+    border: 2px solid black;
+    width: 150px;
+    height: 150px;
+}
+
+input{
+    font-size: 1.5rem;
+}

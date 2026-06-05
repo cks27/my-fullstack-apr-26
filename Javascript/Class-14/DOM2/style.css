@@ -1,0 +1,9 @@
+.heading{
+    color: purple;
+    background-color: orange;
+    border: 2px solid black;
+}
+
+.text-decoration-line-through{
+    text-decoration: line-through;
+}
