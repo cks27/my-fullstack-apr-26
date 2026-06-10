@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi dolores,
+    rerum repudiandae enim consectetur consequatur quae recusandae,
+    perferendis at quod illum, deleniti similique a eius nulla architecto
+    earum. Iure, deleniti.
+  </p>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi dolores,
+    rerum repudiandae enim consectetur consequatur quae recusandae,
+    perferendis at quod illum, deleniti similique a eius nulla architecto
+    earum. Iure, deleniti.
+  </p>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi dolores,
+    rerum repudiandae enim consectetur consequatur quae recusandae,
+    perferendis at quod illum, deleniti similique a eius nulla architecto
+    earum. Iure, deleniti.
+  </p>
+  <script>
+    // WRITE THE JS PROGRAM HERE ====================================================================
+    // const p = document.querySelectorAll('p');
+
+    /*
+      For interview or machine-coding rounds, the click counter + timeout approach is usually preferred because it works consistently and clearly demonstrates your understanding of event handling.
+    */
+    /*let timer;
+    document.addEventListener('click', (event) => {
+      if (event.target.tagName !== 'P') return;
+
+      const target = event.target;
+      const detail = event.detail;
+
+      clearTimeout(timer);
+
+      timer = setTimeout(() => {
+        if (detail === 1)
+          target.style.backgroundColor = 'red';
+        else if (detail === 2)
+          target.style.backgroundColor = 'green';
+        else if (detail === 3)
+          target.style.backgroundColor = ''
+      }, 500);
+
+    });*/
+
+    /*
+      The above code has issue, 
+      Interview follow-up: bug with multiple paragraphs
+
+      If you click:
+
+      Paragraph A once
+      Paragraph B once immediately after
+
+      The second click clears the timer for Paragraph A because there is only one global timer.
+
+      A robust solution would maintain a timer per paragraph (using a Map) or attach listeners directly to each paragraph.
+
+      This is exactly the kind of edge case interviewers often ask about after you present the first solution.
+    */
+
+
+  </script>
+</body>
+
+</html>

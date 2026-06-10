@@ -1,0 +1,1 @@
+# Full Stack LLD: FE Machine coding-2: Events & Event Handling, Bubbling & capturing
