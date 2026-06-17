@@ -10,7 +10,7 @@ A bishop can move diagonally in any direction until it reaches the edge of the b
 
 ## Requirements
 
-* Create an **N × N** chessboard dynamically using JavaScript.
+* Create an **8 × 8** chessboard dynamically using JavaScript.
 * Use alternating black and white colors to represent the board.
 * When a user clicks on a cell:
 
@@ -35,7 +35,7 @@ If the user clicks on cell `(3,3)`, the following cells should be highlighted:
 
 ## Constraints
 
-* Board size can change - N.
+* Board size is fixed at **8 × 8**.
 * The bishop can move only diagonally.
 * All valid diagonal cells up to the board boundary must be highlighted.
 

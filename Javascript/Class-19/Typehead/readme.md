@@ -22,7 +22,6 @@ The component should fetch matching results from an API and render them in a dro
 
 * Implement debouncing to avoid making an API request on every keystroke.
 * Prevent stale API responses from overriding newer search results.
-* Cache previously fetched queries to reduce unnecessary network requests.
 
 ### User Experience
 
@@ -80,7 +79,6 @@ By completing this challenge, you will gain experience with:
 * Fetch API
 * Async/Await
 * AbortController
-* Caching
 * State Management
 * Handling Race Conditions
 * Building Responsive User Interfaces
