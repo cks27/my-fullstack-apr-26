@@ -15,7 +15,7 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: white;
-  padding: 1.25rem 2rem;
+  padding: 1rem 2rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
   border-bottom: 1px solid #dfe1e6;
 }
@@ -33,4 +33,30 @@ header {
 
 .add-task-button:hover {
   background-color: #dfe1e6;
+}
+
+
+.tool-box {
+  display: flex;
+  gap: .5rem;
+  padding: .5rem 2rem;
+}
+.tool-box div {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.task-board {
+  display: flex;
+  gap: 1rem;
+  border: 1px solid black;
+  width: 60vw;
+  margin: 1rem auto;
+}
+.task-board article {
+  border: 1px solid #c1c1c1;
+  flex-basis: 300px;
+  flex-grow: 1;
+  height: 50vh;
 }
