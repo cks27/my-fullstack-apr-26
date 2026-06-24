@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Kanban Board</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Simple Kanban Board</h1>
+        <button id="add-task-btn">Add Task</button>
+    </header>
+    <main>
+        <section class="tool-box">
+            <div data-priority="pink"></div>
+            <div data-priority="green"></div>
+            <div data-priority="blue"></div>
+            <div data-priority="black"></div>
+            <div data-priority="grey"></div>
+            <div style="display: flex; justify-content: center; align-items: center;" data-priority="all">All</div>
+        </section>
+        <section class="task-board">
+            <article>
+                <h2>Todo</h2>
+                <div class="todo-tasks"></div>
+            </article>
+            <article>
+                <h2>In Progress</h2>
+                <div class="inprogress-tasks"></div>
+            </article>
+            <article>
+                <h2>Done</h2>
+                <div class="done-tasks"></div>
+            </article>
+        </section>
+
+        <section class="modal-container">
+            <section class="add-task-modal">
+                <section class="add-task-modal-content">
+                    <form>
+                        <label for="task-desc">Task Description</label>
+                        <textarea placeholder="Task Description"></textarea>
+
+                        <h5>Priority</h5>
+
+                        <label for="lightpink">Light Pink(P0)</label>
+                        <input type="radio" id="lightpink" value="pink" name="priority">
+
+                        <label for="lightgreen">Light Green(P1 High)</label>
+                        <input type="radio" id="lightgreen" value="green" name="priority">
+
+                        <label for="lightblue">Light Blue (P2 Medium)</label>
+                        <input type="radio" id="lightblue" value="blue" name="priority">
+
+                        <label for="black">Black (P3 Low)</label>
+                        <input type="radio" id="black" value="black" name="priority">
+
+                        <label for="grey">Grey (On Hold)</label>
+                        <input type="radio" id="grey" value="grey" name="priority">
+
+                        <section class="form-actions">
+                            <button type="submit">Create</button>
+                            <button type="button" id="close-modal-btn">Cancel</button>
+                        </section>
+                    </form>
+
+                </section>
+            </section>
+        </section>
+
+        <section class="edit-modal">
+            <section class="edit-modal-container">
+                <section class="edit-modal-container-content">
+                </section>
+            </section>
+
+        </section>
+
+    </main>
+    <footer></footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
