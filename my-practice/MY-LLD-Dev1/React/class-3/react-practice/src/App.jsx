@@ -1,12 +1,16 @@
 // import Counter from "./Counter";
+// import Counters from "./Counters";
 import Card from "./Card";
 import Todo from "./Todo";
 import "./App.css"
+import ParentCounter from "./ParentCounter";
 
 function App() {
  
   return (
     <>
+    <ParentCounter />
+    {/* <Counters /> */}
      {/* <Counter initial={0} />
      <Counter initial={10} /> */}
      <Card 
