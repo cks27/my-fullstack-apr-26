@@ -6,7 +6,7 @@ const Product = (props) => {
     setName('Anonymous');
     console.log(name)
   }
-  return (
+  return (  
     <article onClick={productClickHandler}>
         <h4>Name: {name}</h4>
         <h5>Price: {props.price}</h5>
