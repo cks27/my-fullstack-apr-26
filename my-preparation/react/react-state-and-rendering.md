@@ -1,6 +1,6 @@
 # React State Updates, Snapshots, and Rendering
 
-This document explains key concepts in React state management, focusing on why state updates do not immediately reflect in local variables (snapshots) and how React schedules rendering.
+This document explains key concepts in React state management, focusing on why state updates do not immediately reflect in local variables (snapshots), how React schedules rendering, and the role of Javascript references in triggering UI updates.
 
 ---
 
@@ -108,16 +108,94 @@ Once your event handler has fully finished executing:
 
 ---
 
-## 4. How to access the updated state immediately
+## 4. What actually Renders? (Component Rendering vs Browser DOM Painting)
+
+There is a big difference between React executing your JavaScript functions (re-rendering) and the browser updating the visual HTML elements (painting).
+
+### A. JavaScript Re-rendering (Component Scope)
+When a state variable changes, React **does not** re-run your entire application. It only runs:
+1. **The component that owns the state** (e.g., `TodoList`).
+2. **All of its child components recursively** (e.g., all `<Todo />` items inside the list).
+
+Other parts of the application (like sibling or parent components that do not depend on this state) **are not executed at all**. For example, a sibling `<ParentCounter />` or `<Card />` component will not run when `TodoList` state changes.
+
+### B. Browser DOM Painting (Surgical Updates)
+Even though React re-runs the JavaScript function for `TodoList` and all of its `<Todo />` children, **it does not reconstruct the entire HTML DOM tree in the browser.**
+
+React's **Virtual DOM** processes this in two steps:
+1. **Diffing**: React runs the component and creates a new Virtual DOM tree (a lightweight JavaScript representation of the HTML). It compares it with the previous Virtual DOM tree.
+2. **Reconciliation & Commit**: It calculates the exact difference (e.g., *"Only one new `<li>` was added at the bottom of the list"*).
+3. **Paint**: React updates **only** that specific `<li>` in the real browser DOM. The rest of the browser's HTML remains completely untouched.
+
+| Action | Scope | What does it do? |
+| :--- | :--- | :--- |
+| **Component Rendering (JS)** | **Partial** | Only the state-owning component and its nested children re-run their JavaScript code. |
+| **Browser DOM Painting (HTML)** | **Surgical** | Only the exact HTML nodes that changed in value or structure are modified on screen. |
+
+---
+
+## 5. Reference Equality and Immutability (Why `[...]` is required)
+
+To understand why we must copy arrays instead of mutating them directly, we must look at how JavaScript handles references.
+
+### A. Primitive Types vs Reference Types in JavaScript
+* **Primitives** (Numbers, Strings, Booleans): Stored by value. Comparing them checks their actual values.
+* **Objects & Arrays**: Stored by **reference** (a memory address). Comparing them checks if they point to the exact same memory address.
+
+```javascript
+// Array created in memory at Address #101
+const todos = ["Go to Gym"];
+
+// Creating a variable pointing to the same address:
+const copy = todos; 
+copy.push("Read Book"); // Mutates the array at Address #101 in-place
+
+console.log(todos === copy); // true (Both still point to Address #101)
+```
+
+### B. How React Detects State Changes (`Object.is`)
+React uses a shallow comparison called `Object.is()` (similar to `===`) to determine if a state update should trigger a re-render:
+
+$$\text{Does } \text{Object.is}(\text{oldState}, \text{newState}) \text{ return true?}$$
+
+* **If `true` (Same Reference)**: React assumes nothing changed and **skips** re-rendering.
+* **If `false` (New Reference)**: React detects the change and **triggers** a re-render.
+
+### C. Why `push()` fails in React
+If you mutate an array in-place and pass it to your setter:
+```javascript
+todos.push(newTodo); // Modifies Address #101
+setTodos(todos);     // Passes Address #101
+```
+React checks:
+$$\text{Object.is}(\text{Address \#101}, \text{Address \#101}) \implies \text{true}$$
+
+React assumes no change occurred, and your UI **will not update**, even though the array contents have technically changed.
+
+### D. Why Spread Syntax `[...]` works
+By using the spread operator `[...]`, you instruct JavaScript to instantiate a **new array in memory**:
+```javascript
+// 1. Instantiates a new array at Address #202
+// 2. Copies items from #101 into #202
+// 3. Appends newTodo to #202
+const nextTodos = [...todos, newTodo]; 
+
+setTodos(nextTodos); // Passes Address #202
+```
+React checks:
+$$\text{Object.is}(\text{Address \#101}, \text{Address \#202}) \implies \text{false}$$
+
+React registers a difference in references, schedules a re-render, and the UI immediately updates with your new item.
+
+---
+
+## 6. How to access the updated state immediately
 
 ### Method A: Use a local variable (for immediate logic)
 If you need to use the updated state inside the same handler, construct the new state in a local variable first:
 ```javascript
 const addTodoHandler = () => {
-  const updatedTodos = todos.concat({
-    id: uuid(),
-    task: inpTask,
-  });
+  const updatedTodos = [...todos, newTodo];
 
   setTodos(updatedTodos);
   console.log(updatedTodos); // Correctly prints the new array immediately!

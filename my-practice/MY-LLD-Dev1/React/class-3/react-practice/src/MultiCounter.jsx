@@ -13,9 +13,9 @@ function MultiCounter({ index, value }) {
     <>
       <div className="counter">
         <h3>Counter Number: {index}</h3>
-        <button onClick={increment}>+</button>
-        <div>{count}</div>
         <button onClick={decrement}>-</button>
+        <div>{count}</div>
+        <button onClick={increment}>+</button>
       </div>
     </>
   );

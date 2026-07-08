@@ -19,11 +19,12 @@ const TodoList = () => {
   ]);
 
   const addTodoHandler = () => {
-    setTodos(todos.concat({
+    const newTodo = {
       id: uuid(),
       task: inpTask,
-    }));
-    console.log(todos)
+    };
+    setTodos([...todos, newTodo]);
+
   };
   const inputTaskChangeHandler = (event) => {
     setInpTask(event.target.value);
