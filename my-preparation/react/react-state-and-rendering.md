@@ -75,13 +75,43 @@ You cannot change the value of the `todos` constant inside the currently executi
 
 ## 3. How React Schedules Updates under the Hood
 
-When we say React **"schedules next state to be used on the next function call"**, here is what is actually happening in memory:
+When we say React **"schedules next state to be used on the next function call"**, here is the conceptual flow in memory:
 
-```
+```text
 [User Click] ──> [setTodos() Called] ──> [Update Queued in Fiber] ──> [Function Finishes] ──> [React Triggers Re-render]
                                                                                                         │
                                                                                                         ▼
                                                                                          [useState() returns updated state]
+```
+
+Here is the detailed sequence of events that occurs between the user's click and the screen updating:
+
+```mermaid
+flowchart TD
+    subgraph Execution ["1. Event Handler Execution (Current Render)"]
+        A[User Clicks 'Add Todo'] --> B["addTodoHandler() Starts"]
+        B --> C["setTodos(newTodos) Called"]
+        C --> D["React Queues Update inside Fiber Node
+        (Local 'todos' variable remains unchanged)"]
+        D --> E["addTodoHandler() Finishes Execution"]
+    end
+
+    subgraph Scheduling ["2. React Scheduler (Tick/Microtask)"]
+        E --> F["Call Stack Empties"]
+        F --> G["React Scheduler triggers Re-render"]
+    end
+
+    subgraph Rerendering ["3. Re-rendering (Next Render)"]
+        G --> H["React calls TodoList() again"]
+        H --> I["useState() reads newTodos from Fiber Node"]
+        I --> J["New local 'todos' constant created with updated value"]
+        J --> K["Component returns new JSX"]
+        K --> L["React diffs JSX and commits changes to Browser DOM"]
+    end
+
+    style D fill:#ffccd5,stroke:#ff4d6d,stroke-width:2px
+    style G fill:#ffe5ec,stroke:#ff85a1,stroke-width:2px
+    style I fill:#e8f0fe,stroke:#4285f4,stroke-width:2px
 ```
 
 ### A. React's Internal Memory (The Fiber Node)
