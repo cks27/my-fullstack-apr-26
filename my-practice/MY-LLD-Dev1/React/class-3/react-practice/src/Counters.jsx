@@ -3,7 +3,7 @@ import { useState } from "react";
 // Complete the code
 
 function Counters() {
-    const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
   const increment = () => {
     setCount(count + 1);
   };
@@ -12,9 +12,9 @@ function Counters() {
   };
 
   return (
-    <div>
+    <div className="counter">
       <button onClick={decrement}>-</button>
-      <span>{count}</span>
+      <div>{count}</div>
       <button onClick={increment}>+</button>
     </div>
   );

@@ -1,16 +1,20 @@
-import { useState } from "react";
+// import { useState } from "react";
 function Todo(props) {
-    const [tasks, setTasks] = useState([]);
-    const [val, setVal] = useState("");
-    const add = () => {
-        tasks.push()
-    }
+    // const [tasks, setTasks] = useState([]);
+    // const [val, setVal] = useState("");
+    // const addHandler = (event) => {
+    //   console.log(event.target.value)
+    //     tasks.push(event.target.value);
+    // }
+    // const deleteHandler = () => {}
+
   return (
     <>
-      <section>
-        <input type="text" name="val" id="val" placeholder="Add Todo"/>
-        <button type="button" onclick="add">Add</button>
-        <button type="button" onClick="delete">Delete</button>
+    <li>{props.task}</li>
+      {/* <section>
+        <input type="text" value={val} id="val" placeholder="Add Todo"/>
+        <button type="button" onClick={addHandler}>Add</button>
+        <button type="button" onClick={deleteHandler}>Delete</button>
       </section>
       <section>
         <ul>
@@ -18,7 +22,7 @@ function Todo(props) {
                 tasks.map(task=> <li key={task}>{task}</li>)
             }
         </ul>
-      </section>
+      </section> */}
     </>
   );
 }

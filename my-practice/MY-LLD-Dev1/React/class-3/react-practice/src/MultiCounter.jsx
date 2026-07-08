@@ -10,12 +10,14 @@ function MultiCounter({ index, value }) {
   };
 
   return (
-    <div>
-      <h2>Counter Number: {index}</h2>
-      <button onClick={increment}>+</button>
-      <p>{count}</p>
-      <button onClick={decrement}>-</button>
-    </div>
+    <>
+      <div className="counter">
+        <h3>Counter Number: {index}</h3>
+        <button onClick={increment}>+</button>
+        <div>{count}</div>
+        <button onClick={decrement}>-</button>
+      </div>
+    </>
   );
 }
 
