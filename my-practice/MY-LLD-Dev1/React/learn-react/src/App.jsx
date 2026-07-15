@@ -1,6 +1,6 @@
 import "./App.css";
 import Todo from "./todo/Todo";
-import { LocalStorage1 } from "./localStorage";
+import { LocalStorage1, LocalStorage2 } from "./localStorage";
 
 function App() {
   return (
@@ -8,6 +8,7 @@ function App() {
       <Todo />
       <hr />
       <LocalStorage1 />
+      <LocalStorage2 />
     </div>
   );
 }
