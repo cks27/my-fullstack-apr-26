@@ -42,10 +42,12 @@ const products = [
   }
 ];
 
+// list products
 app.get('/products', (req, res) => {
     res.send(ApiResponse.build('success', 'All Products', products));
 });
 
+// add a product
 app.post('/products', (req, res) => {
     const { title, price, description } = req.body;
     const newProduct = {
@@ -56,8 +58,36 @@ app.post('/products', (req, res) => {
     }
     products.push(newProduct);
 
-    res.json(ApiResponse.build('success', "Product created successfully", newProduct));
+    res.status(201).json(ApiResponse.build('success', "Product created successfully", newProduct));
+});
+
+// get product by id
+app.get('/products/:id', (req, res)=> {
+  const { id } = req.params;
+  const product = products.find(product => product.id === parseInt(id));
+  res.json(ApiResponse.build('success', 'Single Product', product));
+});
+
+// update a product
+app.patch('/products/:id', (req, res) => {
+  const {id} = req.params;
+  const {title, price, description} = req.body;
+  const product = products.find(product => product.id === parseInt(id));
+
+  product.title = title;
+  product.price = price;
+  product.description = description;
+
+  res.json(ApiResponse.build('Success', 'Update successful', product));
 })
+// delete 
+app.delete('/products/:id', (req, res) => {
+  const {id} = req.params;
+  const delIdx = products.findIndex(product => product.id === parseInt(id));
+  products.splice(delIdx, 1);
+
+  res.json(ApiResponse.build('Success', 'Deletion successful', null));
+});
 
 app.listen(3000, () => {
     console.log('Server started at port 3000');
