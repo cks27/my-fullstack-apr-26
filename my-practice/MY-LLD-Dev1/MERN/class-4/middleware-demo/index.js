@@ -12,8 +12,8 @@ const app = express();
     Middleware can inspect or modify req/res, end the response, or call next() to continue to the next handler.
 */
 app.use((req, res, next) => {
-    console.log(req.method)
-    console.log('inside my first middleware');
+    //console.log(req.method)
+   // console.log('inside my first middleware');
     next();
 });
 
