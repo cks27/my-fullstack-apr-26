@@ -1,10 +1,15 @@
 const express = require('express');
 const ApiResponse = require('./core/ApiResponse');
 const {ApiError, BadRequestError, NotFoundError} = require('./core/ApiError');
+const mongoose = require('mongoose');
 
 const app = express();
 
 app.use(express.json());
+
+mongoose.connect('mongodb://127.0.0.1:27017/products-db')
+    .then(() => console.log('connection open!'))
+    .catch((err)=> console.log(err))
 
 // Gist doc - https://docs.github.com/en/rest/gists/gists?apiVersion=2026-03-10
 
